@@ -8,4 +8,50 @@
 
 ## 1.1 The Elements of Programming
 
-A language is a framework within which we organize our ideas about processes.
+- A language is a framework within which we organize our ideas about processes.
+- A language provides 3 mechanisms for combining simple ideas into complex ideas.:
+  - **Primitive Expressions:** the simplest entities the language is concerned with.
+  - **Means of combination:** by which compound elements are built from simpler ones.
+  - **Means of abstraction:** by which compound elements can be named and manipulated.
+- Two kinds of **Elements**
+  - **procedures** - description of rules for manipulating data
+  - **data** - the "stuff" that we manipulate
+
+## 1.1.1 Expressions
+
+- The interpreter responds by displaying the result of its evaluating an expression
+- Expressions representing numbers may be combined with an expression representing a primitive procedure (such as + or *)
+
+**Example:**
+
+> *The following expressions can be referred to as "**combinations**". A combination is an expression that consists of applying a function to some arguments*
+>
+> `(<operator> <operand> <operand>)`
+
+```lisp
+(+ 33 33)
+(- 33 33)
+(* 33 33)
+(/ 33 33)
+(+ 3.3 3.3)
+```
+
+- The convention of placing the operator to the left is called *prefix notation*
+  - Prefix notation is useful because it can take an arbitrary number of arguments: `(+ 8 6 7 5 3 0 9)`
+  - It extends in a straight forward way to allow combinations to be nested.
+    - Can have combinations whose elements are themselves combinations: `(+ (* 3 3) (- 33 3))`
+    - In principle there is no limit to the depth of such nested combinations.
+- **Pretty Printing:** Aligning the operands vertically.
+  - Indentations clearly displaying structure
+- Basic **Interpreter** cycle:
+  - read-eval-print loop (REPL)
+
+## 1.1.2 Naming and Environment
+
+- A critical aspect of programming language is using a name to refer to a computational object.
+- A **name** identifies a variable whose value is the object.
+- Things are named with the `define` keyword in the *Scheme* dialect of Lisp: `define size 2`
+  - `define` is the language's simplest means of abstraction.
+    - Allows for  simple names to refer to the results of compound operations.
+- These name-object associations are stored in memory.
+  - This memory is called the **global environment**

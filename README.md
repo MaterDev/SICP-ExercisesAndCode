@@ -1,6 +1,6 @@
 # SICP-ExercisesAndCode
 
-![Cover Image](./cover.png)
+![Cover Image](./images/cover.png)
 
 This repository is dedicated to my journey through the renowned computer science book, "***Structure and Interpretation of Computer Programs***" (SICP), by Harold Abelson, Gerald Jay Sussman, and Julie Sussman.
 
