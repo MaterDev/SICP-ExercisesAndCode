@@ -20,3 +20,4 @@
 *.rkt~
 
 .vscode
+.DS_Store
