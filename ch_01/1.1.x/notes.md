@@ -259,11 +259,11 @@ _Using `sum-of-squares` to construct further procedures_
 
 👾 **Lisp uses applicative-order evaluation.** 👾 (eager evaluation)
 
-(Reference: https://dev.to/showwaiyan/applicative-order-vs-normal-order-1dj)
+(Reference: <https://dev.to/showwaiyan/applicative-order-vs-normal-order-1dj>)
 
 ![Evaluation comparison](images/applicative-normal-evalutation.png)
 
-(Reference: https://courses.cs.washington.edu/courses/cse505/99au/functional/applicative-normal.pdf)
+(Reference: <https://courses.cs.washington.edu/courses/cse505/99au/functional/applicative-normal.pdf>)
 >
 > - **Normal order** - rewrites/executes the leftmost occurence of a function application. (This is equivalent to call by name.)
 > - **Applicative orde**r - rewrites/executes the innermost occurrence of a function application first. (This is equivalent to call by value.)
@@ -314,7 +314,6 @@ The construct for conditionals is called _**case analysis**_.
 ```
 
 > _👆🏾 If `x` is less than `0` return `-x`; otherwise return `x`_
-
 
 - **Predicate**
   - _Procedure_ that returns `true` or `false`
