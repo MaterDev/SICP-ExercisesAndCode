@@ -83,9 +83,16 @@ Combinations ab, ac, bc
 
 (define (myFinalFun a b c)
   (cond
-    ((and (< (+ a c) (+ b c)) (> (+ b c) (+ a b))) (sum (square b) (square c))) ; Handles for if b, c is largest combo
-    ((and (> (+ a c) (+ b c)) (> (+ a c) (+ a b)) (sum (square a) (square c)))) ; handles if a, c is the largest
-    ((sum (square a) (square b)))
+    ((and
+      (< (+ a c) (+ b c))
+      (> (+ b c) (+ a b)))
+     (sum (square b) (square c))) ; Handles for if b, c is largest combo
+    ((and
+      (> (+ a c) (+ b c))
+      (> (+ a c) (+ a b)))
+     (sum (square a) (square c))) ; handles if a, c is the largest
+    (
+     (sum (square a) (square b))) ; fall-through for a, b
     ))
 
 (myFinalFun 5 4 3) ; a, b = 41 ✅
