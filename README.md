@@ -8,7 +8,7 @@ This repo will serve as a collection of my exercises, code snippets, and persona
 
 ## About the Book
 
-"Structure and Interpretation of Computer Programs" is a seminal work in computer science, exploring the principles and techniques of software design and programming. The book emphasizes the role of abstraction and the use of Lisp (more specifically, the Scheme dialect) to illustrate fundamental concepts in computer science and software engineering.
+"_**Structure and Interpretation of Computer Programs**_" is a seminal work in computer science, exploring the principles and techniques of software design and programming. The book emphasizes the role of abstraction and the use of Lisp (more specifically, the Scheme dialect) to illustrate fundamental concepts in computer science and software engineering.
 
 ## Goals and Objectives
 
@@ -16,7 +16,7 @@ This repo will serve as a collection of my exercises, code snippets, and persona
 - **Practical Application**: To apply the concepts learned in practical exercises and projects.
 - **Continuous Learning**: To document my learning process and reflect on my progress throughout the journey.
 
-## Using LISP, Racket, and #lang sicp
+## Using LISP, Racket, and `#lang sicp`
 
 For the exercises and code in this repository, I am using:
 
