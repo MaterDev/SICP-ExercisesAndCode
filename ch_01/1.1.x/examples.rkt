@@ -103,3 +103,40 @@ circumfrence
 (>=Alt 4 2) ; true
 (>=Alt 2 2) ; true
 (>=Alt 1 2) ; false
+
+;; Section 1.1.7
+
+#|
+Define a function that takes in a guess and the number that should be squared.
+  
+  - If the difference between guess^2 and x is < 0.0.1, then return the guess.
+
+  - Otherwise, run `improve`, which will average the guess with the quotient
+    - Then run the next iteration of the square-root procedure against this outcome and re-test using `good-enough?`
+|#
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x)
+                 x)))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+; Using a default guess of 1
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+; -----
+
+(sqrt 9) ; Output: 3.00009155413138
+(sqrt (+ 100 37)) ; Output: 11.704699917758145
+(sqrt (+ (sqrt 2) (sqrt 3))) ; Output: 1.7739279023207892
+(square (sqrt 100)) ; Output: 100.00000000279795
+
