@@ -142,3 +142,68 @@ Normal-Order: will always evaluate to 0, because test will evaluate the x = 0 an
     Only evaluates operands when they are "needed", (p) is never needed
 |#
 
+;;; 1.6
+
+;; A function that that takes in some condition to test, and the results to produce for the true/false results.
+(define (new-if predicate then-clause else-clause)
+  (cond (predicate then-clause)
+        (else else-clause)))
+
+(new-if (= 2 3) 0 5) ; output: 5
+(new-if (= 1 1) 0 5) ; output: 0
+
+;; Write square-root program with new-if instead of build-in if
+
+(define (sqrt-iter2 guess x)
+  (new-if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x)
+                 x)))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (good-enough?2 guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+; Using a default guess of 1
+(define (sqrt2 x)
+  (sqrt-iter2 1.0 x))
+
+; ---------
+
+;(sqrt 9) ; Output: 3.00009155413138
+
+;; This will break and the app will run out of memory. * new-if does not use normal order evaluation, it uses applicative order evaluation
+
+#|
+The act of re-defining a special form using generic arguments effectively "De-Special Forms" it. **It then becomes subject to applicative-order evaluation**, such that any expressions within the consequent or alternate portions are evaluated regardless of the predicate.
+|#
+
+;;; 1.7
+
+#|
+Explain these statements, with examples showing how the test fails for small and large numbers.
+
+An alternative strategy for implementing good-enough? is to watch how guess changes from one iteration to the next and to stop when the change is a very small fraction of the guess.
+
+Design a square-root procedure that uses this kind of end test. Does this work beer for small and large numbers?
+|#
+
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x)
+                 x)))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+; Using a default guess of 1
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+(sqrt 99999999999999999999999999999999999999999999999999) ; Output: 3.00009155413138

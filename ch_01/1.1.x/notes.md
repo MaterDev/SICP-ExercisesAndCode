@@ -466,3 +466,22 @@ $
 ---
 
 ![recursion](images/recursion.png)
+
+
+### Exercise 1.6
+
+```lisp
+(define (new-if predicate then-clause else-clause)
+  (cond (predicate then-clause)
+        (else else-clause)))
+```
+
+The default `if` statement is a **special form** which means that **even when an interpreter follows applicative substitution, it only evaluates one of its parameters- not both**.
+
+However, the newly created `new-if` doesn't have this property and hence, *it never stops calling itself due to the third parameter passed to it in sqrt-iter*.
+
+> The act of re-defining a special form using generic arguments effectively "De-Special Forms" it. **It then becomes subject to applicative-order evaluation**, such that any expressions within the consequent or alternate portions are evaluated regardless of the predicate.
+
+In Ex 1.6, the iteration procedure is called without return and eventually overflows the stack causing an out of memory error.
+
+
