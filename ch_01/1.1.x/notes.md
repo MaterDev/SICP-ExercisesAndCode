@@ -370,3 +370,25 @@ The construct for conditionals is called _**case analysis**_.
 (>=Alt 2 2) ; true
 (>=Alt 1 2) ; false
 ```
+
+## 1.1.7 Example: Square Roots by Newton's Method
+
+> *The square root of $x$ is equal to any number $y$ such that $y$ is zero or more (non-negative), and when $y$ is squared, it equals $x$.*
+
+$\sqrt{x} = \{ y \, | \, y \geq 0 \, \text{and} \, y^2 = x \}
+$
+
+```lisp
+(define (sqrt x)
+  (the y (and (>= y 0)
+              (= (square y) x))))
+```
+
+- In **mathematics** we are usually concerned with _**declarative**_ descriptions (what is).
+- In **computer science** we are usually concerned with _**imperative**_ descriptions (how to).
+- Computing square roots
+  - Using Newton's method of *successive approximations*
+    - Whenever we have a guess $y$ for the value of the square root of $x$, a simple manipulation can be performed to get a better guess. (Averating $y$ with $x/y$)
+
+![Newton's Method](images/newton-method.png)
+

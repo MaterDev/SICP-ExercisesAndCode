@@ -128,10 +128,10 @@ Because of the if logic, b will always be treated as a positive number.
 (define (test x y)
   (if (= x 0) 0 y))
 
-(test 0 3) ; is 0
-(test 1 3) ; is 3
-(test 0 (p))
-(p)
+;;; (test 0 3) ; is 0
+;;; (test 1 3) ; is 3
+;;; (test 0 (p))
+;;; (p)
 
 #|
 Applicative: If applicative then the interpreter will run an endless loop if x is 0, because it will continuously try to evaluate p.✅
@@ -141,3 +141,4 @@ Applicative: If applicative then the interpreter will run an endless loop if x i
 Normal-Order: will always evaluate to 0, because test will evaluate the x = 0 and return 0
     Only evaluates operands when they are "needed", (p) is never needed
 |#
+
