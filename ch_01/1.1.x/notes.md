@@ -1,5 +1,9 @@
 # 1.1.x Notes
 
+![cover](images/cover.png)
+
+## Introduction
+
 - Processess manipulate other abstract things called data.
 - The evolution of a process is directed by a pattern of rules called a program.
 - Well designed computational systems are organized in a modular manner.
