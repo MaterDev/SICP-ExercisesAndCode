@@ -392,3 +392,77 @@ $
 
 ![Newton's Method](images/newton-method.png)
 
+> 👾 **`sqrt` program**
+
+```lisp
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x)
+                 x)))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+; Using a default guess of 1
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+; ---------
+
+(sqrt 9) ; Output: 3.00009155413138
+(sqrt (+ 100 37)) ; Output: 11.704699917758145
+(sqrt (+ (sqrt 2) (sqrt 3))) ; Output: 1.7739279023207892
+(square (sqrt 100)) ; Output: 100.00000000279795
+```
+
+- Typically programming languages have explicit constructs for iteration (looping), like `for` loops and `while` loops. (_So far this has been avoided_).
+- This procedure uses **iteration without looping** using  **recursive** procedure calls.
+  - Each call to the procedure represents a step in the iteraton, and the iteration continues by making subsequent calls to the same procedure.
+- This is a more **functional** style rather than using **imperative loops**.
+
+---
+
+### Comparison: Imperative vs Functional
+
+<table>
+    <thead>
+        <tr>
+            <th>Aspect</th>
+            <th>Imperative Programming</th>
+            <th>Functional Programming</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Definition</strong></td>
+            <td>Focuses on describing how a program operates, using statements that change a program's state.</td>
+            <td>Emphasizes what to compute, treating computation as the evaluation of mathematical functions and avoids changing-state and mutable data.</td>
+        </tr>
+        <tr>
+            <td><strong>Key Features</strong></td>
+            <td>- Use of loops for iteration<br>- Assignment statements<br>- Control structures like <code>if</code>, <code>else</code></td>
+            <td>- Recursion for iteration<br>- Functions as first-class citizens<br>- Emphasis on statelessness and immutability</td>
+        </tr>
+        <tr>
+            <td><strong>Iteration</strong></td>
+            <td>Achieved through loops (<code>for</code>, <code>while</code>).</td>
+            <td>Achieved through recursion (self-referencing functions).</td>
+        </tr>
+        <tr>
+            <td><strong>State and Data</strong></td>
+            <td>Often relies on mutable state and side effects.</td>
+            <td>Focuses on immutable data and statelessness.</td>
+        </tr>
+    </tbody>
+</table>
+
+---
+
+![recursion](images/recursion.png)
