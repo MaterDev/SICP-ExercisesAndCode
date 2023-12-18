@@ -392,7 +392,7 @@ $
 - In **computer science** we are usually concerned with _**imperative**_ descriptions (how to).
 - Computing square roots
   - Using Newton's method of *successive approximations*
-    - Whenever we have a guess $y$ for the value of the square root of $x$, a simple manipulation can be performed to get a better guess. (Averating $y$ with $x/y$)
+    - Whenever we have a guess $y$ for the value of the square root of $x$, a simple manipulation can be performed to get a better guess. (Averaging $y$ with $x/y$)
 
 ![Newton's Method](images/newton-method.png)
 
